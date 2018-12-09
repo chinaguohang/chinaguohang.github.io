@@ -108,17 +108,17 @@
 
 
 
-  <meta name="description" content="Faster RCNN 刨坑旅程环境和数据准备本服务器环境：python2.7，tensorflow 1.8 （目前从1.3-1.12均测试，发现只有1.8后期不会出bug），cuda9。  下载源码  1git clone --recursive https://github.com/smallcorgi/Faster-RCNN_TF.git  下载数据集 123wget http://host">
+  <meta name="description" content="Faster RCNN 刨坑旅程环境和数据准备本服务器环境：python2.7，tensorflow 1.8 （目前从1.3-1.12均测试，发现只有1.8后期不会出bug），cuda9。  下载源码 1git clone --recursive https://github.com/smallcorgi/Faster-RCNN_TF.git  下载数据集 123wget http://host.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Faster RCNN 刨坑旅程">
 <meta property="og:url" content="http://guohang.work/2018/12/08/Faster-rcnn/index.html">
 <meta property="og:site_name" content="金咕咕的博客">
-<meta property="og:description" content="Faster RCNN 刨坑旅程环境和数据准备本服务器环境：python2.7，tensorflow 1.8 （目前从1.3-1.12均测试，发现只有1.8后期不会出bug），cuda9。  下载源码  1git clone --recursive https://github.com/smallcorgi/Faster-RCNN_TF.git  下载数据集 123wget http://host">
+<meta property="og:description" content="Faster RCNN 刨坑旅程环境和数据准备本服务器环境：python2.7，tensorflow 1.8 （目前从1.3-1.12均测试，发现只有1.8后期不会出bug），cuda9。  下载源码 1git clone --recursive https://github.com/smallcorgi/Faster-RCNN_TF.git  下载数据集 123wget http://host.">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-08T09:04:17.463Z">
+<meta property="og:updated_time" content="2018-12-09T06:29:36.936Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Faster RCNN 刨坑旅程">
-<meta name="twitter:description" content="Faster RCNN 刨坑旅程环境和数据准备本服务器环境：python2.7，tensorflow 1.8 （目前从1.3-1.12均测试，发现只有1.8后期不会出bug），cuda9。  下载源码  1git clone --recursive https://github.com/smallcorgi/Faster-RCNN_TF.git  下载数据集 123wget http://host">
+<meta name="twitter:description" content="Faster RCNN 刨坑旅程环境和数据准备本服务器环境：python2.7，tensorflow 1.8 （目前从1.3-1.12均测试，发现只有1.8后期不会出bug），cuda9。  下载源码 1git clone --recursive https://github.com/smallcorgi/Faster-RCNN_TF.git  下载数据集 123wget http://host.">
 
 
 
@@ -359,12 +359,24 @@
                 
               
 
-              <time title="Created: 2018-12-08 16:06:52 / Modified: 17:04:17" itemprop="dateCreated datePublished" datetime="2018-12-08T16:06:52+08:00">2018-12-08</time>
+              <time title="Created: 2018-12-08 16:06:52" itemprop="dateCreated datePublished" datetime="2018-12-08T16:06:52+08:00">2018-12-08</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-12-09 14:29:36" itemprop="dateModified" datetime="2018-12-09T14:29:36+08:00">2018-12-09</time>
               
             
           </span>
@@ -399,17 +411,18 @@
       
         <h1 id="Faster-RCNN-刨坑旅程"><a href="#Faster-RCNN-刨坑旅程" class="headerlink" title="Faster RCNN 刨坑旅程"></a>Faster RCNN 刨坑旅程</h1><h3 id="环境和数据准备"><a href="#环境和数据准备" class="headerlink" title="环境和数据准备"></a>环境和数据准备</h3><p>本服务器环境：python2.7，tensorflow 1.8 （目前从1.3-1.12均测试，发现只有1.8后期不会出bug），cuda9。</p>
 <ol>
-<li>下载源码</li>
-</ol>
+<li><p>下载源码</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone --recursive https://github.com/smallcorgi/Faster-RCNN_TF.git</span><br></pre></td></tr></table></figure>
-<ol start="2">
+</li>
 <li><p>下载数据集</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget http://host.robots.ox.ac.uk/pascal/VOC/voc2007/VOCtrainval_06-Nov-2007.tar</span><br><span class="line">wget http://host.robots.ox.ac.uk/pascal/VOC/voc2007/VOCtest_06-Nov-2007.tar</span><br><span class="line">wget http://host.robots.ox.ac.uk/pascal/VOC/voc2007/VOCdevkit_08-Jun-2007.tar</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>修改make.sh<br>将</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">g++ -std=c++11 -shared -o roi_pooling.so roi_pooling_op.cc \</span><br><span class="line">    roi_pooling_op.cu.o -I $TF_INC  -D GOOGLE_CUDA=1 -fPIC $CXXFLAGS \</span><br><span class="line">    -lcudart -L $CUDA_PATH/lib64</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">if [ -d &quot;$CUDA_PATH&quot; ]; then</span><br><span class="line">        nvcc -std=c++11 -c -o roi_pooling_op.cu.o roi_pooling_op_gpu.cu.cc \</span><br><span class="line">                -I $TF_INC -D GOOGLE_CUDA=1 -x cu -Xcompiler -fPIC $CXXFLAGS \</span><br><span class="line">                -arch=sm_37</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
+<p>改为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">if [ -d &quot;$CUDA_PATH&quot; ]; then</span><br><span class="line">        nvcc -std=c++11 -c -o roi_pooling_op.cu.o roi_pooling_op_gpu.cu.cc \</span><br><span class="line">                -I $TF_INC -D GOOGLE_CUDA=1 -x cu -Xcompiler -fPIC $CXXFLAGS \</span><br><span class="line">                -arch=sm_35</span><br></pre></td></tr></table></figure></p>
+<p>将<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">g++ -std=c++11 -shared -o roi_pooling.so roi_pooling_op.cc \</span><br><span class="line">    roi_pooling_op.cu.o -I $TF_INC  -D GOOGLE_CUDA=1 -fPIC $CXXFLAGS \</span><br><span class="line">    -lcudart -L $CUDA_PATH/lib64</span><br></pre></td></tr></table></figure></p>
 <p>改为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">TF_LIB=$(python -c &apos;import tensorflow as tf; print(tf.sysconfig.get_lib())&apos;)</span><br><span class="line">    g++ -std=c++11 -shared  -o roi_pooling.so  roi_pooling_op.cc  \</span><br><span class="line">         roi_pooling_op.cu.o -I $TF_INC  -D GOOGLE_CUDA=1 -fPIC $CXXFLAGS  \</span><br><span class="line">         -lcudart -L $CUDA_PATH/lib64  -L $TF_LIB -ltensorflow_framework</span><br></pre></td></tr></table></figure></p>
 <ol start="3">
 <li>执行make<br>相关包安装<br><code>pip install tensorflow_gpu-1.8.0-cp27-cp27mu-manylinux1_x86_64.whl  #安装tensorflow-gpu
@@ -431,12 +444,14 @@ conda install cython   #安装Cython</code></li>
 <p>此处需要安装的包有<br>easydict<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install -c chembl easydict</span><br></pre></td></tr></table></figure></p>
 <p>Scipy<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install scipy</span><br></pre></td></tr></table></figure></p>
 <p>Pillow<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install Pillow</span><br></pre></td></tr></table></figure></p>
-<p>python-opencv<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install --channel https://conda.anaconda.org/menpo opencv3</span><br></pre></td></tr></table></figure></p>
-<p>由于opencv3某一个包的下载速度巨慢，先先迅雷下载下来，再conda离线安装<br><strong><a href="https://conda.anaconda.org/menpo/linux-64/opencv3-3.2.0-np111py27_0.tar.bz2" target="_blank" rel="noopener">opencv3</a></strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>python-opencv<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install -y opencv &quot;scipy=0.18.0&quot; &quot;pillow=3.0.0&quot;</span><br></pre></td></tr></table></figure></p>
+<p>matplotlib<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install matplotlib</span><br></pre></td></tr></table></figure></p>
+<p>Yaml<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install pyyaml</span><br></pre></td></tr></table></figure></p>
 <p>例如</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python ./tools/demo.py --model ./data/pretrain_model/VGGnet_fast_rcnn_iter_70000.ckpt</span><br></pre></td></tr></table></figure>
 <p>采用VOC数据进行训练<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./experiments/scripts/faster_rcnn_end2end.sh $DEVICE $DEVICE_ID VGG16 pascal_voc</span><br></pre></td></tr></table></figure></p>
 <p>例如<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./experiments/scripts/faster_rcnn_end2end.sh gpu 0 VGG16 pascal_voc</span><br></pre></td></tr></table></figure></p>
+<p>测试训练出来的模型<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python ./tools/test_net.py --device gpu --device_id 0 --weights ./data/pretrain_model/VGGnet_fast_rcnn_iter_70000.ckpt --imdb voc_2007_test --cfg experiments/cfgs/faster_rcnn_end2end.yml --network VGGnet_test</span><br></pre></td></tr></table></figure></p>
 <ol start="3">
 <li>自己的数据训练<br>首先，将自己的数据转换为VOC格式,voc格式为</li>
 </ol>
