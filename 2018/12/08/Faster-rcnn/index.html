@@ -115,7 +115,7 @@
 <meta property="og:site_name" content="金咕咕的博客">
 <meta property="og:description" content="Faster RCNN 刨坑旅程环境和数据准备本服务器环境：python2.7，tensorflow 1.8 （目前从1.3-1.12均测试，发现只有1.8后期不会出bug），cuda9。  下载源码 1git clone --recursive https://github.com/smallcorgi/Faster-RCNN_TF.git  下载数据集 123wget http://host.">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-09T06:29:36.936Z">
+<meta property="og:updated_time" content="2018-12-11T02:24:49.557Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Faster RCNN 刨坑旅程">
 <meta name="twitter:description" content="Faster RCNN 刨坑旅程环境和数据准备本服务器环境：python2.7，tensorflow 1.8 （目前从1.3-1.12均测试，发现只有1.8后期不会出bug），cuda9。  下载源码 1git clone --recursive https://github.com/smallcorgi/Faster-RCNN_TF.git  下载数据集 123wget http://host.">
@@ -376,7 +376,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-12-09 14:29:36" itemprop="dateModified" datetime="2018-12-09T14:29:36+08:00">2018-12-09</time>
+                <time title="Modified: 2018-12-11 10:24:49" itemprop="dateModified" datetime="2018-12-11T10:24:49+08:00">2018-12-11</time>
               
             
           </span>
@@ -451,7 +451,8 @@ conda install cython   #安装Cython</code></li>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python ./tools/demo.py --model ./data/pretrain_model/VGGnet_fast_rcnn_iter_70000.ckpt</span><br></pre></td></tr></table></figure>
 <p>采用VOC数据进行训练<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./experiments/scripts/faster_rcnn_end2end.sh $DEVICE $DEVICE_ID VGG16 pascal_voc</span><br></pre></td></tr></table></figure></p>
 <p>例如<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./experiments/scripts/faster_rcnn_end2end.sh gpu 0 VGG16 pascal_voc</span><br></pre></td></tr></table></figure></p>
-<p>测试训练出来的模型<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python ./tools/test_net.py --device gpu --device_id 0 --weights ./data/pretrain_model/VGGnet_fast_rcnn_iter_70000.ckpt --imdb voc_2007_test --cfg experiments/cfgs/faster_rcnn_end2end.yml --network VGGnet_test</span><br></pre></td></tr></table></figure></p>
+<p>测试训练出来的模型<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python ./tools/test_net.py --device gpu --device_id 0 --weights /home/guo/chong/end/Faster-RCNN_TF/output/faster_rcnn_end2end/voc_2007_trainval/VGGnet_fast_rcnn_iter_70000.ckpt --imdb voc_2007_test --cfg experiments/cfgs/faster_rcnn_end2end.yml --network VGGnet_test</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/home/guo/chong/end/Faster-RCNN_TF/output/faster_rcnn_end2end/voc_2007_trainval/VGGnet_fast_rcnn_iter_70000.ckpt</span><br></pre></td></tr></table></figure>
 <ol start="3">
 <li>自己的数据训练<br>首先，将自己的数据转换为VOC格式,voc格式为</li>
 </ol>
